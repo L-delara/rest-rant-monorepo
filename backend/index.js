@@ -7,11 +7,10 @@ const app = express();
 const cookieSession = require("cookie-session");
 
 // Express Settings
-app.use(cors());
 app.use(
   cookieSession({
     name: "session",
-    keys: ["asdljasldkfjs"],
+    keys: [process.env.SESSION_SECRET],
     sameSite: "strict",
     maxAge: 24 * 60 * 60 * 1000, // save for 24 hours
   })
